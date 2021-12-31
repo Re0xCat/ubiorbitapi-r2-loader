@@ -1,0 +1,14 @@
+[Orbit]
+Name = "YourGameName"
+Saves = "<default>"
+ProductId = 0
+CdKeys = [""]
+
+[Orbit.Log]
+Write = true
+Path = "Orbit.log"
+
+[Orbit.Profile]
+AccountId = "JosephSeed"
+Username = "JosephSeed"
+Password = "123456"
