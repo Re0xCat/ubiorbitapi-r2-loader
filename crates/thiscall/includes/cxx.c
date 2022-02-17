@@ -1,6 +1,6 @@
-int get_this_ptr()
+unsigned int get_this_ptr()
 {
-    int this = 0;
+    unsigned int this = 0;
 
     __asm
     {
@@ -10,7 +10,7 @@ int get_this_ptr()
     return this;
 }
 
-void set_this_ptr(int this)
+void set_this_ptr(unsigned int this)
 {
     __asm
     {
