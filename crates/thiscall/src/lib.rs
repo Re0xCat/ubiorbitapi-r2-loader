@@ -1,18 +1,21 @@
-extern "C" {
-    fn get_this_ptr() -> u32;
-    fn set_this_ptr(ptr: u32);
-}
+use std::arch::asm;
 
-#[inline]
-pub fn get_this_ptr_cxx() -> u32 {
+#[no_mangle]
+#[inline(never)]
+pub extern "C" fn get_this_ptr_cxx() -> u32 {
+    let this: u32;
+
     unsafe {
-        return get_this_ptr();
+        asm!("mov {0}, ecx", out(reg) this);
     }
+
+    this
 }
 
-#[inline]
-pub fn set_this_ptr_cxx(ptr: u32) {
+#[no_mangle]
+#[inline(never)]
+pub extern "C" fn set_this_ptr_cxx(this: u32) {
     unsafe {
-        return set_this_ptr(ptr);
+        asm!("mov ecx, {0}", in(reg) this);
     }
 }
